@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	position: sticky;
+	top: 0;
+	background-color: black;
+	color: white;
+	padding: 10px;
+}
+
+.warning {
+	color: red;
+}
+
+.list-item {
+	display: flex;
+	align-items: baseline;
+
+	> * {
+		margin: 5px;
+	}
+}
