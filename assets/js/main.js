@@ -6,6 +6,9 @@ const value = document.querySelector('.value');
 const warning = document.querySelector('.warning');
 const total = document.querySelector('.total span');
 
+if (!storage.getItem('buyList')) { storage.setItem('buyList', "") }
+if (!storage.getItem('total')) { storage.setItem('total', "0.00") }
+
 buyList.innerHTML = storage.getItem('buyList');
 total.innerHTML = storage.getItem('total');
 
