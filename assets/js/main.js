@@ -6,33 +6,38 @@ const value = document.querySelector('.value');
 const warning = document.querySelector('.warning');
 const total = document.querySelector('.total span');
 
-if (!storage.getItem('buyList')) { storage.setItem('buyList', "") }
-if (!storage.getItem('total')) { storage.setItem('total', "0.00") }
+if (!storage.getItem('buyList')) {
+	storage.setItem('buyList', "");
+	storage.setItem('total', "0.00");
+}
 
 buyList.innerHTML = storage.getItem('buyList');
 total.innerHTML = storage.getItem('total');
 
 function addItem() {
-	if (item.value === "" || value.value === "") {
+	const itemName = item.value;
+	const itemValue = parseFloat(value.value.replace(',', '.'));
+
+	if (itemName === "" || itemValue === "") {
 		warning.innerHTML = 'Insira um item corretamente.';
 		return;
 	}
 
-	if (value.value != parseFloat(value.value)) {
+	if (isNaN(itemValue)) {
 		warning.innerHTML = 'Insira um valor corretamente.';
 		return;
 	}
 
 	buyList.innerHTML += `
 	<section class="list-item">
-	<h3>${item.value}</h3> 
-	<p>R$ <span>${parseFloat(value.value).toFixed(2)}</span></p>
+	<h3>${itemName}</h3> 
+	<p>R$ <span>${itemValue.toFixed(2)}</span></p>
 	<i onclick="editItem(this)" class="fa-solid fa-edit"></i>
 	<i onclick="deleteItem(this)" class="fa-solid fa-trash-can"></i>
 	</section>
 	`;
 
-	total.innerHTML = (parseFloat(total.innerHTML) + parseFloat(value.value)).toFixed(2);
+	total.innerHTML = (parseFloat(total.innerHTML) + itemValue).toFixed(2);
 
 	// Reset
 	item.value = "";
