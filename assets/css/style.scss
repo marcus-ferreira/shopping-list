@@ -1,29 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	background-color: rgb(89, 189, 111);
+	max-width: 500px;
+	margin: auto;
 }
 
 header {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	position: sticky;
-	top: 0;
-	background-color: black;
+	justify-content: center;
+	align-items: center;
 	color: white;
 	padding: 10px;
+
+	h1 {
+		font-size: 2.5em;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.form-text {
+			display: flex;
+			
+			> * {
+				max-width: 40vw;
+				border: none;
+				border-radius: 20px;
+				margin: 5px;
+				padding: 10px;
+			}
+		}
+
+		.form-buttons {
+			margin: 10px;
+
+			> * {
+				margin: 5px;
+				padding: 15px;
+				border: none;
+				border-radius: 50%;
+				box-shadow: 0 5px 10px darkgreen;
+				color: white;
+			}
+
+			:first-child {
+				background-color: lightgreen;
+			}
+
+			:last-child {
+				background-color: tomato;
+			}
+		}
+
+	}
+
+	.total {
+		font-size: 2rem;
+	}
+
+	.warning {
+		color: red;
+	}
 }
 
-.warning {
-	color: red;
-}
+.buy-list {
+	border-radius: 20px 20px 0 0;
+	background-color: white;
+	height: 100vh;
+	padding: 20px;
 
-.list-item {
-	display: flex;
-	align-items: baseline;
-
-	> * {
+	.list-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: rgb(230, 255, 230);
 		margin: 5px;
+		padding: 10px;
+		border-radius: 10px;
+
+		.item-text {
+			flex: 0 1 80%;
+			display: flex;
+			justify-content: space-between;
+			gap: 20px;
+			align-items: center;
+
+			:first-child {
+				flex: 0 1 60%;
+			}
+		}
+
+		.item-icons {
+			display: flex;
+
+			> * {
+				padding: 0 5px;
+			}
+		}
 	}
 }

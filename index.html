@@ -20,14 +20,18 @@
 		<h1>Lista de Compras</h1>
 	
 		<form>
-			<input class="item" type="text" placeholder="Item">
-			<input class="value" type="text" placeholder="Valor">
-			<button type="submit">Adicionar</button>
-			<button type="button" onclick="clearList()">Limpar Lista</button>
+			<section class="form-text">
+				<input class="item" type="text" placeholder="Item">
+				<input class="value" type="text" placeholder="Valor">
+			</section>
+			<section class="form-buttons">
+				<button type="submit" class="fa-solid fa-plus add-item"></button>
+				<button type="button" class="fa-solid fa-xmark" onclick="clearList()"></button>
+			</section>
 			<p class="warning"></p>
 		</form>
 
-		<p class="total">Total: R$ <span></span></p>
+		<p class="total">R$ <span></span></p>
 	</header>
 
 	<section class="buy-list"></section>

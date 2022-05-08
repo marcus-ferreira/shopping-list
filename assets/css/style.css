@@ -1,8 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #59bd6f;
+  max-width: 500px;
+  margin: auto;
 }
 
 header {
@@ -14,28 +22,132 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 20px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  background-color: black;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: white;
   padding: 10px;
 }
 
-.warning {
-  color: red;
+header h1 {
+  font-size: 2.5em;
 }
 
-.list-item {
+header form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.list-item > * {
+header form .form-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header form .form-text > * {
+  max-width: 40vw;
+  border: none;
+  border-radius: 20px;
   margin: 5px;
+  padding: 10px;
+}
+
+header form .form-buttons {
+  margin: 10px;
+}
+
+header form .form-buttons > * {
+  margin: 5px;
+  padding: 15px;
+  border: none;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 5px 10px darkgreen;
+          box-shadow: 0 5px 10px darkgreen;
+  color: white;
+}
+
+header form .form-buttons :first-child {
+  background-color: lightgreen;
+}
+
+header form .form-buttons :last-child {
+  background-color: tomato;
+}
+
+header .total {
+  font-size: 2rem;
+}
+
+header .warning {
+  color: red;
+}
+
+.buy-list {
+  border-radius: 20px 20px 0 0;
+  background-color: white;
+  height: 100vh;
+  padding: 20px;
+}
+
+.buy-list .list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #e6ffe6;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.buy-list .list-item .item-text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 80%;
+          flex: 0 1 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buy-list .list-item .item-text :first-child {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 60%;
+          flex: 0 1 60%;
+}
+
+.buy-list .list-item .item-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.buy-list .list-item .item-icons > * {
+  padding: 0 5px;
 }
 /*# sourceMappingURL=style.css.map */

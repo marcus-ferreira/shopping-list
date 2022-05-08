@@ -30,10 +30,14 @@ function addItem() {
 
 	buyList.innerHTML += `
 	<section class="list-item">
-		<h3>${itemName}</h3> 
-		<p>R$ <span>${parseFloat(itemValue).toFixed(2)}</span></p>
-		<i onclick="editItem(this)" class="fa-solid fa-edit"></i>
-		<i onclick="deleteItem(this)" class="fa-solid fa-trash-can"></i>
+		<section class="item-text">
+			<h3>${itemName.charAt(0).toUpperCase() + itemName.slice(1)}</h3> 
+			<p>R$ <span>${parseFloat(itemValue).toFixed(2)}</span></p>
+		</section>
+		<section class="item-icons">
+			<i onclick="editItem(this)" class="fa-solid fa-edit"></i>
+			<i onclick="deleteItem(this)" class="fa-solid fa-trash-can"></i>
+		</section>
 	</section>
 	`;
 
@@ -43,30 +47,36 @@ function addItem() {
 	item.value = "";
 	value.value = "";
 	warning.innerHTML = "";
+	item.focus();
 
 	saveState();
 }
 
 function editItem(element) {
-	const elementItem = element.parentElement.querySelector("h3");
-	const elementValue = element.parentElement.querySelector("p span");
+	const elementItem = element.parentElement.parentElement.querySelector("h3");
+	const elementValue = element.parentElement.parentElement.querySelector("p span");
 
 	item.value = elementItem.innerHTML;
 	value.value = elementValue.innerHTML;
 
+	item.focus();
+
+	warning.innerHTML = "";
 	deleteItem(element);
 	saveState();
 }
 
 function deleteItem(element) {
-	const elementValue = element.parentElement.querySelector("p span");
+	const elementValue = element.parentElement.parentElement.querySelector("p span");
 	total.innerHTML = (parseFloat(total.innerHTML) - parseFloat(elementValue.innerHTML)).toFixed(2);
 
-	element.parentElement.remove();
+	warning.innerHTML = "";
+	element.parentElement.parentElement.remove();
 	saveState();
 }
 
 function clearList() {
+	warning.innerHTML = "";
 	buyList.innerHTML = "";
 	total.innerHTML = "0.00";
 	saveState();
@@ -77,8 +87,7 @@ function saveState() {
 	window.localStorage.setItem("total", total.innerHTML);
 }
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', e => {
 	e.preventDefault();
 	addItem();
-});
-
+})
