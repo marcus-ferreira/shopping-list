@@ -59,11 +59,15 @@ header form .form-text {
 }
 
 header form .form-text > * {
-  max-width: 40vw;
+  max-width: 30vw;
   border: none;
   border-radius: 20px;
   margin: 5px;
   padding: 10px;
+}
+
+header form .form-text .quantity {
+  max-width: 15vw;
 }
 
 header form .form-buttons {
@@ -129,16 +133,23 @@ header .warning {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  gap: 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 20px;
 }
 
-.buy-list .list-item .item-text :first-child {
+.buy-list .list-item .item-text > :nth-child(1) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.buy-list .list-item .item-text > :nth-child(2),
+.buy-list .list-item .item-text > :nth-child(3) {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 60%;
-          flex: 0 1 60%;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
 }
 
 .buy-list .list-item .item-icons {

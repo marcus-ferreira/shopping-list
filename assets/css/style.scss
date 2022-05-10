@@ -34,20 +34,24 @@ header {
 
 		.form-text {
 			display: flex;
-			
-			> * {
-				max-width: 40vw;
+
+			>* {
+				max-width: 30vw;
 				border: none;
 				border-radius: 20px;
 				margin: 5px;
 				padding: 10px;
+			}
+
+			.quantity {
+				max-width: 15vw;
 			}
 		}
 
 		.form-buttons {
 			margin: 10px;
 
-			> * {
+			>* {
 				margin: 5px;
 				padding: 15px;
 				border: none;
@@ -95,18 +99,23 @@ header {
 			flex: 0 1 80%;
 			display: flex;
 			justify-content: space-between;
-			gap: 20px;
 			align-items: center;
+			gap: 20px;
 
-			:first-child {
-				flex: 0 1 60%;
+			>:nth-child(1) {
+				flex: 1 1 auto;
+			}
+
+			>:nth-child(2),
+			>:nth-child(3) {
+				flex: 0 0 auto;
 			}
 		}
 
 		.item-icons {
 			display: flex;
 
-			> * {
+			>* {
 				padding: 0 5px;
 			}
 		}

@@ -3,6 +3,7 @@ const form = document.querySelector('form');
 const buyList = document.querySelector('.buy-list');
 const item = document.querySelector('.item');
 const value = document.querySelector('.value');
+const quantity = document.querySelector('.quantity');
 const warning = document.querySelector('.warning');
 const total = document.querySelector('.total span');
 
@@ -17,8 +18,9 @@ total.innerHTML = storage.getItem('total');
 function addItem() {
 	const itemName = item.value;
 	const itemValue = value.value.replace(',', '.');
+	const itemQuantity = quantity.value;
 
-	if (itemName === "" || itemValue === "") {
+	if (itemName === "" || itemValue === "" || itemQuantity === "") {
 		warning.innerHTML = 'Insira um item corretamente.';
 		return;
 	}
@@ -31,8 +33,9 @@ function addItem() {
 	buyList.innerHTML += `
 	<section class="list-item">
 		<section class="item-text">
-			<h3>${itemName.charAt(0).toUpperCase() + itemName.slice(1)}</h3> 
-			<p>R$ <span>${parseFloat(itemValue).toFixed(2)}</span></p>
+			<h3 class="item-name">${itemName.charAt(0).toUpperCase() + itemName.slice(1)}</h3> 
+			<p>R$ <span class="item-value">${parseFloat(itemValue).toFixed(2)}</span></p>
+			<p>x<span class="item-quantity">${itemQuantity}</span></p>
 		</section>
 		<section class="item-icons">
 			<i onclick="editItem(this)" class="fa-solid fa-edit"></i>
@@ -41,11 +44,12 @@ function addItem() {
 	</section>
 	`;
 
-	total.innerHTML = (parseFloat(total.innerHTML) + parseFloat(itemValue)).toFixed(2);
+	total.innerHTML = (parseFloat(total.innerHTML) + (parseFloat(itemValue) * parseFloat(itemQuantity))).toFixed(2);
 
 	// Reset
 	item.value = "";
 	value.value = "";
+	quantity.value = "";
 	warning.innerHTML = "";
 	item.focus();
 
@@ -53,11 +57,13 @@ function addItem() {
 }
 
 function editItem(element) {
-	const elementItem = element.parentElement.parentElement.querySelector("h3");
-	const elementValue = element.parentElement.parentElement.querySelector("p span");
+	const elementItem = element.parentElement.parentElement.querySelector(".item-name");
+	const elementValue = element.parentElement.parentElement.querySelector(".item-value");
+	const elementQuantity = element.parentElement.parentElement.querySelector(".item-quantity");
 
 	item.value = elementItem.innerHTML;
 	value.value = elementValue.innerHTML;
+	quantity.value = elementQuantity.innerHTML;
 
 	item.focus();
 
