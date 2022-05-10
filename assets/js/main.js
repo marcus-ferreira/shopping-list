@@ -82,9 +82,13 @@ function deleteItem(element) {
 }
 
 function clearList() {
+	item.value = "";
+	value.value = "";
+	quantity.value = "";
 	warning.innerHTML = "";
 	buyList.innerHTML = "";
 	total.innerHTML = "0.00";
+	item.focus();
 	saveState();
 }
 
