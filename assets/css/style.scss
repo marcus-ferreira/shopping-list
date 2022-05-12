@@ -89,11 +89,12 @@ header {
 
 	.list-item {
 		display: flex;
+		gap: 20px;
 		align-items: center;
 		justify-content: space-between;
-		background-color: rgb(230, 255, 230);
 		margin: 5px;
 		padding: 10px;
+		border: 2px solid rgb(154, 223, 154);
 		border-radius: 10px;
 
 		.item-text {
@@ -115,9 +116,13 @@ header {
 
 		.item-icons {
 			display: flex;
-
+			color: white;
+			
 			>* {
-				padding: 0 5px;
+				background-color: rgb(53, 194, 53);
+				padding: 10px;
+				margin: 5px;
+				border-radius: 10px;
 			}
 		}
 	}
