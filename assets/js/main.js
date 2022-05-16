@@ -16,7 +16,7 @@ buyList.innerHTML = storage.getItem('buyList');
 total.innerHTML = storage.getItem('total');
 
 function addItem() {
-	const itemName = item.value;
+	const itemName = item.value.replace(/<(\/*)[^>]*>/g, '');
 	const itemValue = value.value.replace(',', '.');
 	const itemQuantity = quantity.value;
 
@@ -29,6 +29,8 @@ function addItem() {
 		warning.innerHTML = 'Insira um valor corretamente.';
 		return;
 	}
+
+	console.log(itemName);
 
 	buyList.innerHTML += `
 	<section class="list-item">
